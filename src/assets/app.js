@@ -2,6 +2,7 @@ var reasonInput = document.querySelector("#input-reason");
 var amountInput = document.querySelector("#input-amount");
 var cancelBtn = document.querySelector("#btn-cancel");
 var confirmBtn = document.querySelector("#btn-confirm");
+var expensesList = document.querySelector("#expenses-list");
 
 confirmBtn.addEventListener("click", () => {
   console.log("it works!");
@@ -15,5 +16,8 @@ confirmBtn.addEventListener("click", () => {
   ) {
     return;
   }
-  console.log(enteredReason, enteredAmount);
+  const newItem = document.createElement("ion-item");
+  newItem.textContent = enteredReason + ": $" + enteredAmount;
+
+  expensesList.appendChild(newItem);
 });
