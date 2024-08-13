@@ -48,3 +48,20 @@ Build Command: npm run build
 Publish Directory: www
 
 Now the app can be accessed via: https://ranjen-ionic-starter-app.netlify.app
+
+---
+
+8. If want to generate new component can use
+
+   > ng g c recipes
+   > //OR
+   > ionic generate
+
+9. Since using Capacitor plugin , Don't need the @ionic-native/splash-screen and @ionic-native/status-bar plugins anymore
+
+- Uninstall using
+
+  > npm uninstall @ionic-native/splash-screen @ionic-native/status-bar
+
+- Install and Use Capacitor Plugins
+  > npm install @capacitor/status-bar @capacitor/splash-screen
