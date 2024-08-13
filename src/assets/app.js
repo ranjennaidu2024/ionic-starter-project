@@ -23,7 +23,12 @@ confirmBtn.addEventListener("click", () => {
     enteredAmount <= 0 ||
     enteredAmount.trim().length <= 0
   ) {
-    return;
+    var alert = document.createElement("ion-alert");
+    alert.header = "Invalid inputs";
+    alert.message = "Please enter a valid reason and amount!";
+    alert.buttons = ["Okay"];
+    document.body.appendChild(alert);
+    return alert.present();
   }
   const newItem = document.createElement("ion-item");
   newItem.textContent = enteredReason + ": $" + enteredAmount;
