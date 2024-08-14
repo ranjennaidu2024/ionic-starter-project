@@ -65,3 +65,68 @@ Now the app can be accessed via: https://ranjen-ionic-starter-app.netlify.app
 
 - Install and Use Capacitor Plugins
   > npm install @capacitor/status-bar @capacitor/splash-screen
+
+---
+
+10. Running the App on iOS: https://ionicframework.com/docs/building/ios
+    Need Mac OS for this , to be tested later.
+
+11. Running the App on Android: https://ionicframework.com/docs/building/android
+
+11.1 Installation
+-Check this document on requirement : https://capacitorjs.com/docs/android
+-You can see it stated API 22+ (Android 5.1 or later) - this will be included in Android Studio ,
+so install Android Studio first:
+When install make sure select Android SDK Tools and Android SDK Platforms for API when install ,
+or after install click Configure->SDK Manager-> SDK Tools , tick Android SDK Build Tools , Android SDK Tools , Android SDK Platform-Tools , Android Emulator and Intel x86 Emulator Accelarator if running Emulator , then Install
+
+11.2 Android development source code running guide:
+
+to create the www folder for native app development:
+
+> ng build
+
+Use Ionic CLI to add Android as supported platform for our project by run:
+
+> ionic capacitor add android
+> ionic capacitor add ios (For IOS)
+
+- after finish you will see new android folder in the project which can be open in Android Studio , this is the native app
+  rename the appId without dashes:
+
+  11.3 Set the package id for the app under capacitor.config.json
+
+  11.4 run to copy www folder into native app
+
+  > ionic capacitor copy android
+  > The above will set the project where you can build android app with it
+
+OR Recommended you can also run:
+
+> ionic capacitor run android
+
+(If want live reload- not build app but run ng serve and give native app by auto update in native app , similar to live update in browser)
+
+- cluncky and not work perfectly , but speed up development
+- need to restart your app on native device once after run the command below , test by change the recipes.page.html, you can see both being changed in browser and also at native app emulator.
+- most of the time emulator live reload wont work , try different emulator. Best is just use from browser if need speed development , to test the native just
+  open the project manually from android studio and test from there.
+
+  > ionic capacitor run android -l
+
+- This will build all the steps for you , ng build + copy www folder into native app android folder + open android folder in android studio so can launch from there
+
+- If above not open the Android Studio , open the project in Android Studio , Tools>Device Manager , choose phone and select any stable api and android version and wait for it to start, by click on play from the emulator. Once emulator started then can click the Play button from above in the IDE.
+
+---
+
+Running the App on a Real Android Device
+You can easily run the app on a real Android device, too.
+
+Simply connect your Android phone to your machine via USB and enable the "Developer Options" as described here: https://developer.android.com/studio/debug/dev-options
+
+Once enabled, check "USB Debugging" in the "Developer Options" and you're good to go and should be able to run the app on your device by selecting it inside of Android Studio.
+
+---
+
+13. Official Capacitor Docs: https://capacitor.ionicframework.com/
