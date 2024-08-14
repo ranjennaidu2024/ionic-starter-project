@@ -10,8 +10,8 @@ import { RecipeDetailPage } from './recipe-detail.page';
 const routes: Routes = [
   {
     path: '',
-    component: RecipeDetailPage,
-  },
+    component: RecipeDetailPage
+  }
 ];
 
 @NgModule({
@@ -19,8 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ],
-  declarations: [RecipeDetailPage],
+  declarations: [RecipeDetailPage]
 })
 export class RecipeDetailPageModule {}
