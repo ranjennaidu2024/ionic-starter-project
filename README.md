@@ -130,3 +130,22 @@ Once enabled, check "USB Debugging" in the "Developer Options" and you're good t
 ---
 
 13. Official Capacitor Docs: https://capacitor.ionicframework.com/
+
+---
+
+14. For debugging can use console.log in the app source code or can put breakpoint in Chrome Developer Tool > Source > webpack and you can put breakpoint in the source there and refresh the page
+
+15. When working with VS Code, you can also use the built-in debugging features to debug Angular apps.
+    Need to have launch.json file , can check below:
+    The official instructions should be helpful: https://code.visualstudio.com/docs/nodejs/angular-tutorial#_debugging-angular
+
+- For now you can refer to the launch.json created to debug the app in the source code by running in Chrome as well
+
+16. For android device native app debugging , after run ionic capacitor run android -l and it open live reload in android studio in chrome you can type: chrome://inspect
+
+- It will open page , and you can see webapp in the Devices > Remote Target , can click Inspect open new window and can see console log for the native app
+
+For ios after run ionic capacitor run ios -l
+
+- open Safari > Develop > Simulator of the emulator we selected in xcode > ip address
+  You can see the console, network , elements etc like in Chrome
