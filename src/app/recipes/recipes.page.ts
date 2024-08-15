@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+
 import { Recipe } from './recipe.model';
 import { RecipesService } from './recipes.service';
 
@@ -9,22 +9,33 @@ import { RecipesService } from './recipes.service';
   styleUrls: ['./recipes.page.scss'],
 })
 export class RecipesPage implements OnInit, OnDestroy {
-  recipes: Recipe[] = [];
-  private recipesSub!: Subscription;
+  recipes!: Recipe[];
 
   constructor(private recipesService: RecipesService) {}
 
   ngOnInit() {
-    this.recipesSub = this.recipesService
-      .getAllRecipes()
-      .subscribe((recipes) => {
-        this.recipes = recipes;
-      });
+    console.log('ngOnInit');
+    console.log(this.recipes);
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter');
+    this.recipes = this.recipesService.getAllRecipes();
+  }
+
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter');
+  }
+
+  ionViewWillLeave() {
+    console.log('ionViewWillLeave');
+  }
+
+  ionViewDidLeave() {
+    console.log('ionViewDidLeave');
   }
 
   ngOnDestroy() {
-    if (this.recipesSub) {
-      this.recipesSub.unsubscribe();
-    }
+    console.log('ngOnDestroy');
   }
 }
