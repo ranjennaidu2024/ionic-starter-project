@@ -1,3 +1,5 @@
+This is a basic starter project app using Ionic + Angular. This project just have a basic hardcoded receipe page where user can delete the receipe from the list. This project can be usedfor research and testing purposes.
+
 Run Ionic App in Local:
 
 1. Install latest nodejs from https://nodejs.org/en
