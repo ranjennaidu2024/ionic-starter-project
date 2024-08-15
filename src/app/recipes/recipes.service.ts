@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject } from 'rxjs';
 import { Recipe } from './recipe.model';
 
 @Injectable({
@@ -23,10 +23,12 @@ export class RecipesService {
     },
   ];
 
+  private recipesSubject = new BehaviorSubject<Recipe[]>([...this.recipes]);
+
   constructor() {}
 
   getAllRecipes() {
-    return [...this.recipes];
+    return this.recipesSubject.asObservable();
   }
 
   getRecipe(recipeId: string): Recipe | null {
@@ -38,5 +40,6 @@ export class RecipesService {
     this.recipes = this.recipes.filter((recipe) => {
       return recipe.id !== recipeId;
     });
+    this.recipesSubject.next([...this.recipes]); // Emit the updated list
   }
 }
